@@ -9,11 +9,14 @@ def checkmate(board): #แปลง board จากstringเป็น list #เ�
 
 # หาตำแหน่งของ king
     king_pos = None
+    king_count = 0
     for  i in range(size):
         for j in range(size):
             if board[i][j] == 'K':
                 king_pos = (i, j)
-                break
+                king_count += 1 
+    if king_pos == None or king_count != 1:
+                return "Error"
 
     if not king_pos:
             print("Fail")
@@ -45,7 +48,7 @@ def checkmate(board): #แปลง board จากstringเป็น list #เ�
         return
 
     # เช็ค Pawn
-    for dx, dy in [(-1, -1), (-1, 1)]:
+    for dx, dy in [(1, -1), (1, 1)]:
         i, j = x + dx, y + dy
         if 0 <= i < size and 0 <= j < size and board[i][j] == "P":
             print("Success")

@@ -58,6 +58,5 @@ K...
         if checkmate(b) == "Error":
             print("Error")
         
-
 if __name__ == "__main__":
     main()
